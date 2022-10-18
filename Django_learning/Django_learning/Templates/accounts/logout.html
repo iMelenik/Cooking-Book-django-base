@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content%}
+
+{% if request.user.is_authenticated %}
+  <form method="post"> {% csrf_token %}
+    <h2>Вы уверены, что хотите выйти?</h2>
+    <button type="submit">Да, выйти</button>
+  </form>
+{% else %}
+  <p>Вы не вошли в систему. Хотите <a href="/login/">войти</a>?</p>
+{% endif %}
+
+{% endblock content %}

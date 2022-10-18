@@ -1,2 +1,2 @@
 # Django_learning
-practical yatube project
+Учебный проект создания кулинарной книги с использованием фреймворка Django.

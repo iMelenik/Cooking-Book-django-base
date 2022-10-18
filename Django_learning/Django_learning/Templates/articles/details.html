@@ -1,0 +1,11 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div style="display: flex; align-items: baseline;">
+    <h2>Recep name: {{ object.title }} </h2>
+    <span>(id: {{ object.id }})</span>
+</div>
+
+<p>{{ object.content }}</p>
+
+{% endblock content %}

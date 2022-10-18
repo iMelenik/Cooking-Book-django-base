@@ -1,0 +1,7 @@
+asgiref==3.5.2
+django>=3.2,<3.3
+pytz==2022.4
+sqlparse==0.4.3
+django-dotenv
+gunicorn
+psycopg2-binary

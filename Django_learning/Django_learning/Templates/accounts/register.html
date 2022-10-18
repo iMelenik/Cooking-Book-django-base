@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% extends "base.html" %}
+
+{% block content%}
+
+{% if not request.user.is_authenticated %}
+  <form method="post"> {% csrf_token %}
+    <h2>Регистрация</h2>
+    {{ form.as_p }}
+    <button type="submit">Зарегистрироваться</button>
+  </form>
+<p>Уже есть аккаунт? <a href="/login">Войти</a>. </p>
+{% else %}
+  <p>Вы уже вошли в систему. Хотите <a href="/logout/">выйти</a>?</p>
+{% endif %}
+
+{% endblock content %}

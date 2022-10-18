@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>This is the cooking site</h1>
+        <form action="/articles/" method="GET">
+            <p>Поиск по id:</p>
+            <input type="text" name="query"/>
+            <input type="submit"/>
+            <hr>
+        </form>
+        {% block content %}
+        <h3>place for recipe</h3>
+        {% endblock content %}
+    </body>
+</html>

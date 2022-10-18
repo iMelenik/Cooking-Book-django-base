@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if created %}
+
+    <p>Был создан рецепт</p>
+    <a href="/articles/{{ object.id }}"> {{ object.title }} </a>
+
+{% else %}
+
+    <form action="." method="post" >
+    {% csrf_token %}
+    <h2>Создать рецепт:</h2>
+    {{ form.as_p }}
+    <button style="display: block" type="submit">Создать рецепт</button>
+    </form>
+
+{% endif %}
+
+{% endblock content %}

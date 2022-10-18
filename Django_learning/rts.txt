@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+    <head>
+
+    </head>
+    <body>
+        <h1>This is cooking site</h1>
+        
+<!--<div style="display: flex; align-items: baseline;">-->
+<!--    <h2>Recep name:  </h2>-->
+<!--    <span>(id: 1)</span>-->
+<!--</div>-->
+
+<!--<p>!</p>-->
+<ul>
+    <h4>All recipes:</h4>
+    
+        
+    
+        
+            <li><a href="/articles/2"> Hello World </a></li>
+        
+    
+        
+            <li><a href="/articles/3"> Hello World Again </a></li>
+        
+    
+        
+            <li><a href="/articles/4"> Helllllllllllllo </a></li>
+        
+    
+</ul>
+
+    </body>
+</html>
