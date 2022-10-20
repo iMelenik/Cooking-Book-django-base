@@ -15,6 +15,7 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from django.views.generic.base import TemplateView
 from .views import home_view
 from articles import views as articles_views
 from accounts import views as accounts_views
@@ -28,4 +29,5 @@ urlpatterns = [
     path('logout/', accounts_views.logout_view),
     path('register/', accounts_views.register_view),
     path('admin/', admin.site.urls),
+    path('about/', TemplateView.as_view(template_name='about.html')),
 ]

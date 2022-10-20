@@ -1,18 +1,24 @@
 <!DOCTYPE html>
+{% load static %}
 <html>
     <head>
-
+    <link href="{% static 'css/styles.css' %}" rel="stylesheet">
     </head>
     <body>
+        <div class="logo_wrap">
+        <img class="logo" src="{% static 'images/logo.jpg' %}">
         <h1>This is the cooking site</h1>
+        </div>
+
         <form action="/articles/" method="GET">
-            <p>Поиск по id:</p>
+            <p>Поиск по id:
             <input type="text" name="query"/>
-            <input type="submit"/>
+            <input type="submit"/></p>
             <hr>
         </form>
+
         {% block content %}
-        <h3>place for recipe</h3>
+        <h2>place for content</h2>
         {% endblock content %}
     </body>
 </html>

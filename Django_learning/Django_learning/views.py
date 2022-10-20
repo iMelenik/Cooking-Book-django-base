@@ -19,3 +19,4 @@ def home_view(request):
     HTML_STRING = render_to_string('home-view.html', context=contex)
 
     return HttpResponse(HTML_STRING)
+

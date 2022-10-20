@@ -1,0 +1,6 @@
+/* static/css/styles.css */
+body h1 {color: #993333}
+body h2 {color: grey}
+
+body .logo {width: 30px; height: 30px; margin-right: 5px}
+body .logo_wrap {display: flex; align-items: center}
