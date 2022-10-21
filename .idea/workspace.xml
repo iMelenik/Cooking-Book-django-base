@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfb1e2b8-c1e6-4522-ab71-b1a132d8b1fb" name="Changes" comment="deploy v.1">
+    <list default="true" id="cfb1e2b8-c1e6-4522-ab71-b1a132d8b1fb" name="Changes" comment="css style added">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Django_learning/Django_learning/Templates/articles/create.html" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/Django_learning/Templates/articles/create.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Django_learning/Django_learning/Templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/Django_learning/Templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_learning/Django_learning/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/Django_learning/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_learning/Django_learning/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/Django_learning/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_learning/Django_learning/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/Django_learning/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_learning/articles/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/articles/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Django_learning/Django_learning/static/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/Django_learning/static/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Django_learning/articles/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/articles/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Django_learning/articles/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/articles/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -169,7 +169,14 @@
       <option name="project" value="LOCAL" />
       <updated>1666081049307</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="css style added">
+      <created>1666263462248</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1666263462248</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -186,7 +193,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="first upload" />
     <MESSAGE value="deploy v.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="deploy v.1" />
+    <MESSAGE value="css style added" />
+    <option name="LAST_COMMIT_MESSAGE" value="css style added" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

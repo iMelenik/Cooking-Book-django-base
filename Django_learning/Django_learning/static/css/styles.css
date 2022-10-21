@@ -4,3 +4,7 @@ body h2 {color: grey}
 
 body .logo {width: 30px; height: 30px; margin-right: 5px}
 body .logo_wrap {display: flex; align-items: center}
+
+body .article-create-field textarea {border-radius: 10px;}
+body .article-create-field label {font-weight: normal}
+body .article-create-field textarea#id_title {height: 30px;}

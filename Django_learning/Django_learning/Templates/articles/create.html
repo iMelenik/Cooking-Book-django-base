@@ -9,12 +9,16 @@
 
 {% else %}
 
-    <form action="." method="post" >
+<form action="." method="post" >
     {% csrf_token %}
     <h2>Создать рецепт:</h2>
-    {{ form.as_p }}
+        <div class="article-create-field">
+            <table>
+            {{ form.as_table }}
+            </table>
+        </div>
     <button style="display: block" type="submit">Создать рецепт</button>
-    </form>
+</form>
 
 {% endif %}
 

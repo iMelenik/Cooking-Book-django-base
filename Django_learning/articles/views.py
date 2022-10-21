@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
 from articles.models import Article
-from .forms import ArticleForm
+from .forms import ArticleForm, ArticleFormOld
 
 
 # Create your views here.

@@ -6,6 +6,7 @@ class ArticleForm(forms.ModelForm):
     class Meta:
         model = Article
         fields = ['title', 'content']
+        labels = {'title': 'Название', 'content': 'Рецепт'}
 
     def clean(self):
         title = self.cleaned_data.get('title')
@@ -17,14 +18,9 @@ class ArticleForm(forms.ModelForm):
 
 
 class ArticleFormOld(forms.Form):
-    title = forms.CharField(min_length=3, max_length=25)
-    content = forms.CharField(min_length=1, max_length=1000)
-
-    # def clean_title(self):
-    #     title = self.cleaned_data.get('title')
-    #     if title == '123':
-    #         raise forms.ValidationError("Название 123 не приемлемо.")
-    #     return title
+    title = forms.CharField(min_length=3, max_length=25, label='Название')
+    content = forms.CharField(min_length=1, max_length=1000, label='Рецепт')
+    field_order = ['title', 'content']
 
     def clean(self):
         if self.cleaned_data.get('title') == '123':
