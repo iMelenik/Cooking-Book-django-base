@@ -2,6 +2,11 @@
 body h1 {color: #993333}
 body h2 {color: grey}
 
+body .cap_links {display: flex; align-items: center}
+body .cap_links a {margin-left: 10px}
+body .search_field {margin-left: 10px}
+
+
 body .logo {width: 30px; height: 30px; margin-right: 5px}
 body .logo_wrap {display: flex; align-items: center}
 

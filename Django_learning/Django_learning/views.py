@@ -15,6 +15,7 @@ def home_view(request):
     article_list = Article.objects.all()
     contex = {
         'objects_list': article_list,
+        'user': request.user,
     }
     HTML_STRING = render_to_string('home-view.html', context=contex)
 

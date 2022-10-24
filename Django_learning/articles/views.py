@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.contrib.auth.decorators import login_required
+from django.http import Http404
 from articles.models import Article
 from .forms import ArticleForm, ArticleFormOld
 
@@ -28,7 +29,7 @@ def article_create_view(request):
     #         article_object = Article.objects.create(title=title, content=content)
     #         contex['object'] = article_object
     #         contex['created'] = True
-    # contex['form'] = form`1
+    # contex['form'] = form
     return render(request, "articles/create.html", context=contex)
 
 
@@ -45,8 +46,12 @@ def article_search_view(request):
     return render(request, 'articles/search.html', context=contex)
 
 
-def article_detail_view(request, id=None):
-    article_obj = Article.objects.get(id=id) if id else None
+def article_detail_view(request, slug=None):
+    article_obj = None
+    try:
+        article_obj = Article.objects.get(slug=slug)
+    except:
+        raise Http404
 
     contex = {
         'object': article_obj

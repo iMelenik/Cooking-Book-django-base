@@ -23,8 +23,8 @@ from accounts import views as accounts_views
 urlpatterns = [
     path('', home_view),
     path('articles/', articles_views.article_search_view),
-    path('articles/<int:id>/', articles_views.article_detail_view),
     path('articles/create/', articles_views.article_create_view),
+    path('articles/<slug:slug>/', articles_views.article_detail_view),
     path('login/', accounts_views.login_view),
     path('logout/', accounts_views.logout_view),
     path('register/', accounts_views.register_view),

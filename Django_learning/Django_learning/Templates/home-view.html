@@ -1,17 +1,11 @@
 {% extends "base.html" %}
 
 {% block content %}
-<!--<div style="display: flex; align-items: baseline;">-->
-<!--    <h2>Recep name: {{ title }} </h2>-->
-<!--    <span>(id: {{ id }})</span>-->
-<!--</div>-->
-
-<!--<p>{{ content }}!</p>-->
 <ul>
     <h4>All recipes:</h4>
     {% for x in objects_list %}
         {% if x.title %}
-            <li><a href="/articles/{{x.id}}"> {{ x.title }} </a></li>
+            <li><a href="/articles/{{x.slug}}"> {{ x.title }} </a></li>
         {% endif %}
     {% endfor %}
 </ul>

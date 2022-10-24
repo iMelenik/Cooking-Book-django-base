@@ -5,7 +5,10 @@ from .models import Article
 
 
 class ArticleAdmin(admin.ModelAdmin):
-    list_display = ['id', 'title', 'short_content']
+    list_display = ['id', 'title', 'slug',
+                    # 'short_content',
+                    'timestamp', 'updated']
+
     list_display_links = ['title']
     search_fields = ['title']
 

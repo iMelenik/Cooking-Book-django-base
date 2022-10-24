@@ -6,20 +6,37 @@
     </head>
 
     <body>
-        <div class="logo_wrap">
-        <img class="logo" src="{% static 'images/logo.jpg' %}">
-        <h1>This is the cooking site</h1>
+        <div class="cap_links">
+            {% if user.is_authenticated %}
+                <p>Приветствую, {{ user }} </p>
+                <a href="/logout/">Выйти</a>
+            {% else %}
+                <a href="/login">Войти</a>
+            {% endif %}
+            <a href="/">Главная</a>
+            <a href="/articles/create/">Создать рецепт</a>
+            <a href="/about/">О сайте</a>
+
+            <div class="search_field">
+            <form action="/articles/" method="GET">
+                <p>
+                    Поиск по id:
+                    <input type="text" name="query"/>
+                    <input type="submit"/>
+                </p>
+            </form>
+            </div>
         </div>
 
-        <form action="/articles/" method="GET">
-            <p>Поиск по id:
-            <input type="text" name="query"/>
-            <input type="submit"/></p>
-            <hr>
-        </form>
+        <div class="logo_wrap">
+            <img class="logo" src="{% static 'images/logo.jpg' %}">
+            <h1>Книга рецептов</h1>
+        </div>
 
+
+<hr>
         {% block content %}
-        <h2>place for content</h2>
+            <h2>place for content</h2>
         {% endblock content %}
     </body>
 </html>
