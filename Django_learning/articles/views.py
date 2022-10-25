@@ -14,40 +14,25 @@ def article_create_view(request):
     }
     if form.is_valid():
         article_object = form.save()
-        # title = form.cleaned_data.get('title')
-        # content = form.cleaned_data.get('content')
-        # article_object = Article.objects.create(title=title, content=content)
         contex['object'] = article_object
         contex['created'] = True
-    # form = ArticleForm()
-    # contex = {}
-    # if request.POST:
-    #     form = ArticleForm(request.POST)
-    #     if form.is_valid():
-    #         title = form.cleaned_data.get('title')
-    #         content = form.cleaned_data.get('content')
-    #         article_object = Article.objects.create(title=title, content=content)
-    #         contex['object'] = article_object
-    #         contex['created'] = True
-    # contex['form'] = form
     return render(request, "articles/create.html", context=contex)
 
 
 def article_search_view(request):
-    try:
-        query = int(request.GET['query'])
-    except:
-        query = None
+    query = request.GET.get('query', None)
+    qs = None
+    if query:
+        qs = Article.objects.search(query=query)
 
-    article_obj = Article.objects.get(id=query) if query else None
     contex = {
-        'object': article_obj,
+        'query': query,
+        'objects_list': qs,
     }
     return render(request, 'articles/search.html', context=contex)
 
 
 def article_detail_view(request, slug=None):
-    article_obj = None
     try:
         article_obj = Article.objects.get(slug=slug)
     except:

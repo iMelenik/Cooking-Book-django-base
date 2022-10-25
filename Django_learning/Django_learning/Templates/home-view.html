@@ -5,7 +5,7 @@
     <h4>All recipes:</h4>
     {% for x in objects_list %}
         {% if x.title %}
-            <li><a href="/articles/{{x.slug}}"> {{ x.title }} </a></li>
+            <li><a href="{{ x.get_absolute_url }}"> {{ x.title }} </a></li>
         {% endif %}
     {% endfor %}
 </ul>

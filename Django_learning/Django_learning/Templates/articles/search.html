@@ -2,9 +2,15 @@
 
 {% block content %}
 
-{% if object %}
-<h1>{{ object.title }}</h1>
-<p>{{ object.content }}</p>
+{% if objects_list %}
+    <ul>
+        <h4>Поиск "{{ query }}". Найдено {{objects_list.count}} статьи:</h4>
+        {% for x in objects_list %}
+            <li><a href="{{ x.get_absolute_url }}"> {{ x.title }} </a></li>
+        {% endfor %}
+    </ul>
+{% else %}
+    <p>По запросу "{{ query }}" ничего не найдено.</p>
 {% endif %}
 
 {% endblock content %}
