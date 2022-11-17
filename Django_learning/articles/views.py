@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404, redirect
 from django.contrib.auth.decorators import login_required
 from django.http import Http404
 from articles.models import Article
@@ -13,7 +13,9 @@ def article_create_view(request):
         'form': form
     }
     if form.is_valid():
-        article_object = form.save()
+        article_object = form.save(commit=False)
+        article_object.user = request.user
+        article_object.save()
         contex['object'] = article_object
         contex['created'] = True
     return render(request, "articles/create.html", context=contex)
@@ -35,11 +37,19 @@ def article_search_view(request):
 def article_detail_view(request, slug=None):
     try:
         article_obj = Article.objects.get(slug=slug)
-    except:
-        raise Http404
+    except Article.DoesNotExist:
+        raise Http404("Такого рецепта не существует :(")
 
     contex = {
-        'object': article_obj
+        'object': article_obj,
+        'user': request.user,
     }
-
     return render(request, "articles/details.html", context=contex)
+
+
+def article_delete_view(request, slug=None):
+    article_obj = get_object_or_404(Article, slug=slug)
+    if request.method == 'POST':
+        article_obj.delete()
+        return redirect('home')
+    return render(request, "articles/delete.html", context={})

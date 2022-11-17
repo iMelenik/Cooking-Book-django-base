@@ -2,6 +2,9 @@
 body h1 {color: #993333}
 body h2 {color: grey}
 
+.helptext {font-size: small; color: grey}
+.hidden {display: none}
+
 body .cap_links {display: flex; align-items: center}
 body .cap_links a {margin-left: 10px}
 body .search_field {margin-left: 10px}
@@ -10,6 +13,17 @@ body .search_field {margin-left: 10px}
 body .logo {width: 30px; height: 30px; margin-right: 5px}
 body .logo_wrap {display: flex; align-items: center}
 
+
 body .article-create-field textarea {border-radius: 10px;}
 body .article-create-field label {font-weight: normal}
 body .article-create-field textarea#id_title {height: 30px;}
+body .article_title {display: flex; align-items: baseline; height: 40px}
+body .article_status {margin-left: 5px; font-size: 10px; font-weight: normal}
+body .article_info {font-size: small; margin-top: 5px}
+body .article_content {}
+
+
+body .recipe-main label {font-weight: normal}
+body .recipe-ingredients label {font-weight: normal}
+body .recipe-ingredients {margin-top: 20px}
+.recipe-image {height: 300px}

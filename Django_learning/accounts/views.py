@@ -7,13 +7,15 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 def login_view(request):
     contex = {}
 
-    if request.POST:
+    if request.method == 'POST':
         form = AuthenticationForm(request, data=request.POST)
         if form.is_valid():
-        # username = request.POST.get('username')
-        # password = request.POST.get('password')
-        # user = authenticate(request, username=username, password=password)
-        # if user:
+            # 1 способ
+            # username = request.POST.get('username')
+            # password = request.POST.get('password')
+            # user = authenticate(request, username=username, password=password)
+            # if user:
+            # return redirect('/')
             login(request, form.get_user())
             return redirect('/')
         else:
@@ -27,7 +29,7 @@ def login_view(request):
 def register_view(request):
     form = UserCreationForm(request.POST or None)
     if form.is_valid():
-        user = form.save()
+        form.save()
         return redirect('/login/')
     contex = {'form': form}
     return render(request, 'accounts/register.html', context=contex)
@@ -35,6 +37,6 @@ def register_view(request):
 
 def logout_view(request):
     contex = {}
-    if request.POST:
+    if request.method == "POST":
         logout(request)
     return render(request, 'accounts/logout.html', context=contex)

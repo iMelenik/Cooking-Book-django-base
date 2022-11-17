@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="article_title">
+    <h2>
+        {{ object.name }}
+        {% if is_author %}
+        <span class="article_status"><a href="{{ object.get_edit_url }}">Изменить</a></span>
+        {% endif %}
+        <span class="article_status">(Последнее изменение: {{ object.updated }})</span>
+    </h2>
+</div>
+
+<div class="article_info">
+    <p>Автор: {{ object.user }}</p>
+    <!--Оценка рецепта-->
+    {% if rated %}
+    <p>Средняя оценка: {{ object.get_avg_recipe_rating }}</p>
+    {% endif %}
+
+    <form method="POST"> {% csrf_token %}
+    <p>
+        {% if rate_error %} {{ rate_error }} {% endif %}
+        {% if rated %}Изменить оценку{% else %}Оценить{% endif %}:
+        <input type="text" name="rank"/>
+        <input type="submit"/>
+    </p>
+    </form>
+
+</div>
+
+<div class="recipe-ingredients">
+    <h4>Ингредиенты:</h4>
+    <table>
+    {% for ingredient in object.get_all_ingredients_qs %}
+            <tr>
+                <td>{{ ingredient.name }}</td>
+                <td>{{ ingredient.quantity }}</td>
+                <td>{{ ingredient.unit }}</td>
+            </tr>
+    {% endfor %}
+    </table>
+</div>
+
+<div class="article_content">
+    <h4>Описание:</h4>
+    <p>{{ object.description }}</p>
+</div>
+
+
+{% if object.picture %}
+    <img class="recipe-image" src="{{ object.picture.url }}">
+{% endif %}
+
+{% endblock content %}

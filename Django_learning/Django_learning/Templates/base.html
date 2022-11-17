@@ -3,6 +3,7 @@
 <html>
     <head>
         <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+        <script src="https://unpkg.com/htmx.org@1.5.0"></script>
     </head>
 
     <body>
@@ -14,13 +15,14 @@
                 <a href="/login">Войти</a>
             {% endif %}
             <a href="/">Главная</a>
-            <a href="/articles/create/">Создать рецепт</a>
+            <a href="{% url 'recipes:user' %}">Мои рецепты</a>
+            <a href="{% url 'recipes:create' %}">Создать рецепт</a>
             <a href="/about/">О сайте</a>
 
             <div class="search_field">
-            <form action="/articles/" method="GET">
+            <form action="{% url 'articles:search' %}" method="GET">
                 <p>
-                    Поиск по id:
+                    Поиск:
                     <input type="text" name="query"/>
                     <input type="submit"/>
                 </p>

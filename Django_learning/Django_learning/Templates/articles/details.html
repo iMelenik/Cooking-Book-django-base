@@ -1,11 +1,24 @@
 {% extends "base.html" %}
 
 {% block content %}
-<div style="display: flex; align-items: baseline;">
-    <h2>Recep name: {{ object.title }} </h2>
+<div class="article_title">
+    <h2>{{ object.title }} </h2>
     <span>(id: {{ object.id }})</span>
 </div>
 
-<p>{{ object.content }}</p>
+<div class="article_author">
+    <p>Автор: {{ object.user }}</p>
+</div>
+
+<div class="article_content">
+    <p>{{ object.content }}</p>
+</div>
+
+{% if user == object.user %}
+<div class="article_delete">
+    <a href="{{ object.get_delete_url }}">Удалить</a>
+</div>
+{% endif %}
+
 
 {% endblock content %}

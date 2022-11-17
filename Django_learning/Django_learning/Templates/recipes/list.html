@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+
+{% block content %}
+<ul>
+    <h4>{% if all %}Все рецепты{% else %}Мои рецепты:{% endif %}</h4>
+    {% if object_list %}
+        {% for obj in object_list %}
+            <li><a href='{{ obj.get_absolute_url }}'> {{ obj.name }} </a></li>
+        {% endfor %}
+    {% else %}
+        <p>У вас нет рецептов. <a href='{% url "recipes:create" %}'>Создать?</a> </p>
+    {% endif %}
+</ul>
+{% endblock content %}

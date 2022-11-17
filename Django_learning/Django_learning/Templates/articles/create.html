@@ -5,7 +5,7 @@
 {% if created %}
 
     <p>Был создан рецепт</p>
-    <a href="/articles/{{ object.id }}"> {{ object.title }} </a>
+    <a href="{{ object.get_absolute_url }}"> {{ object.title }} </a>
 
 {% else %}
 

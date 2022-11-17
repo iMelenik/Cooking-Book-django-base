@@ -39,7 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'articles',
+    'articles.apps.ArticlesConfig',
+    'recipes.apps.RecipesConfig',
 ]
 
 MIDDLEWARE = [
@@ -58,8 +59,7 @@ TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
-            BASE_DIR / "Django_learning/templates",  # одно и то же
-            'C:\dev\Django_learning\Django_learning\Django_learning\Templates',  # одно и то же
+            BASE_DIR / "Django_learning/templates",
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -92,11 +92,11 @@ POSTGRES_HOST = os.environ.get("POSTGRES_HOST")
 POSTGRES_PORT = os.environ.get("POSTGRES_PORT")
 
 POSTGRES_READY = (
-    POSTGRES_DB is not None
-    and POSTGRES_PASSWORD is not None
-    and POSTGRES_USER is not None
-    and POSTGRES_HOST is not None
-    and POSTGRES_PORT is not None
+        POSTGRES_DB is not None
+        and POSTGRES_PASSWORD is not None
+        and POSTGRES_USER is not None
+        and POSTGRES_HOST is not None
+        and POSTGRES_PORT is not None
 )
 
 if POSTGRES_READY:
@@ -111,11 +111,11 @@ if POSTGRES_READY:
         }
     }
 
-
 # Password validation
 # https://docs.djangoproject.com/en/3.2/ref/settings/#auth-password-validators
 
 AUTH_PASSWORD_VALIDATORS = [
+    # нам пока не надо
     # {
     #     'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     # },
@@ -146,11 +146,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
-STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / "Django_learning/static"]
+STATIC_URL = '/static/'  # префикс url для файлов
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')  # путь к общей папке статик, собранной со всех локальных
+# python manage.py collectstatic
+STATICFILES_DIRS = [BASE_DIR / "Django_learning/static"]  # перечень локальных папок статик
+
+MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'Django_learning/static/images/data')
+
 LOGIN_URL = '/login/'
 LOGIN_REDIRECT_URL = '/'
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/login/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

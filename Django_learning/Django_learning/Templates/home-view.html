@@ -1,11 +1,13 @@
 {% extends "base.html" %}
+{% load recipes_tags %}
 
 {% block content %}
 <ul>
-    <h4>All recipes:</h4>
-    {% for x in objects_list %}
-        {% if x.title %}
-            <li><a href="{{ x.get_absolute_url }}"> {{ x.title }} </a></li>
+    <h4>Все рецепты:</h4>
+    {% get_all_recipes as all_recipes %}
+    {% for recipe in all_recipes %}
+        {% if recipe.name %}
+            <li><a href="{{ recipe.get_absolute_url }}"> {{ recipe.name }} </a></li>
         {% endif %}
     {% endfor %}
 </ul>
