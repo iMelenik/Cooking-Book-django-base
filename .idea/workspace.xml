@@ -1,19 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cfb1e2b8-c1e6-4522-ab71-b1a132d8b1fb" name="Changes" comment="articles -&gt; recipes">
+    <list default="true" id="cfb1e2b8-c1e6-4522-ab71-b1a132d8b1fb" name="Changes" comment="complete remake from articles to recipes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_learning/Django_learning/Templates/articles/delete.html" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/Django_learning/Templates/recipes/delete.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_learning/Django_learning/Templates/articles/search.html" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/Django_learning/Templates/recipes/search.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_learning/Django_learning/Templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/Django_learning/Templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_learning/Django_learning/Templates/recipes/detail.html" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/Django_learning/Templates/recipes/detail.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_learning/Django_learning/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/Django_learning/settings.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_learning/Django_learning/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/Django_learning/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_learning/accounts/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/accounts/views.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_learning/recipes/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/recipes/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_learning/recipes/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/recipes/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_learning/recipes/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/recipes/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Django_learning/recipes/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/Django_learning/recipes/views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,6 +51,27 @@
     </key>
   </component>
   <component name="RunManager" selected="Python tests.Python tests for tests.ConfigTest">
+    <configuration name="123" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
+      <module name="Django_learning" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$USER_HOME$/OneDrive/Рабочий стол" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$USER_HOME$/OneDrive/Рабочий стол/123.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="__init__" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
       <module name="Django_learning" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -75,27 +85,6 @@
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Django_learning/Django_learning/__init__.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="manage" type="PythonConfigurationType" factoryName="Python" temporary="true" nameIsGenerated="true">
-      <module name="Django_learning" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/Django_learning" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Django_learning/manage.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -162,11 +151,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.123" />
         <item itemvalue="Python tests.Python tests for tests.ConfigTest" />
         <item itemvalue="Python.views" />
         <item itemvalue="Python.urls" />
         <item itemvalue="Python.__init__" />
-        <item itemvalue="Python.manage" />
       </list>
     </recent_temporary>
   </component>
@@ -235,7 +224,14 @@
       <option name="project" value="LOCAL" />
       <updated>1668686376118</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="complete remake from articles to recipes">
+      <created>1669625157555</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1669625157555</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -258,7 +254,8 @@
     <MESSAGE value="search in title and content added" />
     <MESSAGE value="GIT check" />
     <MESSAGE value="articles -&gt; recipes" />
-    <option name="LAST_COMMIT_MESSAGE" value="articles -&gt; recipes" />
+    <MESSAGE value="complete remake from articles to recipes" />
+    <option name="LAST_COMMIT_MESSAGE" value="complete remake from articles to recipes" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
