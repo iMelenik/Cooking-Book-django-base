@@ -24,12 +24,12 @@ from accounts import views as accounts_views
 
 urlpatterns = [
     path('', home_view, name='home'),
-    path('articles/', include('articles.urls')),
+    # path('articles/', include('articles.urls')),
     path('recipes/', include('recipes.urls')),
     path('login/', accounts_views.login_view, name='login'),
     path('logout/', accounts_views.logout_view, name='logout'),
     path('register/', accounts_views.register_view, name='register'),
     path('admin/', admin.site.urls),
-    path('about/', TemplateView.as_view(template_name='about.html')),
+    path('about/', TemplateView.as_view(template_name='about.html'), name='about'),
 ] + \
     static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

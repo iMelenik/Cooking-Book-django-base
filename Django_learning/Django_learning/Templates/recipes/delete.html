@@ -3,7 +3,7 @@
 {% block content %}
 
 <form method="post" > {% csrf_token %}
-    <h2>Вы уверены, что хотите удалить рецепт {{ object.title }}? </h2>
+    <h2>Вы уверены, что хотите удалить рецепт {{ object.name }}? </h2>
     <button type="submit">Удалить</button>
 </form>
 

@@ -1,6 +1,6 @@
 from django.db import models
 from django.conf import settings
-from django.db.models import Avg
+from django.db.models import Avg, Q
 from django.urls import reverse
 from django.utils.text import slugify
 from transliterate import translit
@@ -8,16 +8,23 @@ from transliterate.exceptions import LanguageDetectionError
 from random import randint
 
 from .validators import validate_unit
+
 User = settings.AUTH_USER_MODEL
 
 
 # Create your models here.
+class RecipeManager(models.Manager):
+    def search(self, query=None):
+        lookups = Q(name__icontains=query) | Q(description__icontains=query)
+        return self.get_queryset().filter(lookups)
+
+
 class Recipe(models.Model):
     """Рецепт"""
-    objects = models.Manager()
+    objects = RecipeManager()
     user = models.ForeignKey(User, on_delete=models.CASCADE, verbose_name='Автор')
 
-    name = models.CharField(max_length=100, verbose_name='Наименование')
+    name = models.CharField(max_length=100, unique=True, verbose_name='Наименование')
     description = models.TextField(verbose_name='Описание')
     picture = models.ImageField(blank=True, null=True, verbose_name='Фото')
     timestamp = models.DateTimeField(auto_now_add=True, verbose_name='Время создания')
@@ -53,25 +60,32 @@ class Recipe(models.Model):
     def get_edit_url(self):
         return reverse("recipes:edit", kwargs={'slug': self.slug})
 
+    def get_delete_url(self):
+        return reverse("recipes:delete", kwargs={'slug': self.slug})
+
     def get_all_ingredients_qs(self):
         return self.recipeingredient_set.all()
 
     def get_avg_recipe_rating(self):
+        """Вывод средней оценки рецепта пользователями"""
         rate = self.rating_set.filter(recipe=self).aggregate(Avg('rate'))
         return rate['rate__avg']
 
     def get_user_recipe_rating(self, user):
+        """Вывод текущей оценки рецепта пользователем"""
         try:
             return self.rating_set.get(recipe=self, user=user)
         except Rating.DoesNotExist:
             return None
 
     def set_user_recipe_rating(self, rate, user):
+        """Установка новой оценки рецепту"""
         rating = self.get_user_recipe_rating(user)
         rating.rate = rate
         rating.save()
 
     def is_user_rated(self, user):
+        """Проверка, голосовал ли пользователь"""
         try:
             self.rating_set.get(recipe=self, user=user)
             return True

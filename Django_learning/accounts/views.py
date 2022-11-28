@@ -15,6 +15,7 @@ def login_view(request):
             # password = request.POST.get('password')
             # user = authenticate(request, username=username, password=password)
             # if user:
+            # login(request, form.get_user())
             # return redirect('/')
             login(request, form.get_user())
             return redirect('/')

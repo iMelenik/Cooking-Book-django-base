@@ -19,15 +19,25 @@ class RecipeForm(forms.ModelForm):
         help_texts = {
             'name': 'Этот текст помогает с названием',
         }
+        widgets = {
+            'description': forms.Textarea(attrs={'rows': '3'})
+        }
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
-        self.fields['description'].widget.attrs.update({'rows': '3'})
         
         for field in self.fields:
             self.fields[field].widget.attrs.update({
                 'class': self.required_css_class if self.fields[field].required else None,
             })
+
+    def clean_name(self):
+        name = self.cleaned_data['name']
+        qs = Recipe.objects.filter(name__icontains=name).exclude(pk=self.instance.pk)
+        if qs.exists():
+            self.add_error('name', 'Уже имеется рецепт с данным названием')
+
+        return name
 
 
 class RecipeIngredientForm(forms.ModelForm):

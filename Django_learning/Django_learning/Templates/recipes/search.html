@@ -6,7 +6,7 @@
     <ul>
         <h4>Поиск "{{ query }}". Найдено {{objects_list.count}} статьи:</h4>
         {% for x in objects_list %}
-            <li><a href="{{ x.get_absolute_url }}"> {{ x.title }} </a></li>
+            <li><a href="{{ x.get_absolute_url }}"> {{ x.name }} </a></li>
         {% endfor %}
     </ul>
 {% else %}

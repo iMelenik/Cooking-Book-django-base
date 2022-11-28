@@ -29,6 +29,12 @@
 
 </div>
 
+{% if user == object.user %}
+<div class="recipe_delete">
+    <a href="{{ object.get_delete_url }}">Удалить</a>
+</div>
+{% endif %}
+
 <div class="recipe-ingredients">
     <h4>Ингредиенты:</h4>
     <table>
