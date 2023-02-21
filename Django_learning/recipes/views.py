@@ -75,29 +75,32 @@ def recipe_detail_view(request, slug=None):
     obj = get_object_or_404(Recipe, slug=slug)
     curr_user = request.user
     is_author = obj.user == curr_user
-    is_rated = obj.get_user_recipe_rating(curr_user)
     context = {
         "object": obj,
-        "rated": is_rated,
         "is_author": is_author,
     }
-    if request.method == 'POST':
-        try:
-            rate = validate_rate(request.POST['rank'])
-        except:
-            context['rate_error'] = "Оценка может быть от 0 до 5."
-        else:
-            if is_rated:
-                # если юзер уже голосовал
-                obj.set_user_recipe_rating(rate, curr_user)
+
+    if curr_user.is_authenticated:
+        is_rated = obj.get_user_recipe_rating(curr_user)
+        context["rated"]: is_rated
+
+        if request.method == 'POST':
+            try:
+                rate = validate_rate(request.POST['rank'])
+            except:
+                context['rate_error'] = "Оценка может быть от 0 до 5."
             else:
-                # если юзер не голосовал
-                Rating.objects.create(
-                    recipe=obj,
-                    user=curr_user,
-                    rate=rate,
-                )
-                return redirect(obj.get_absolute_url())
+                if is_rated:
+                    # если юзер уже голосовал
+                    obj.set_user_recipe_rating(rate, curr_user)
+                else:
+                    # если юзер не голосовал
+                    Rating.objects.create(
+                        recipe=obj,
+                        user=curr_user,
+                        rate=rate,
+                    )
+                    return redirect(obj.get_absolute_url())
     return render(request, 'recipes/detail.html', context)
 
 
