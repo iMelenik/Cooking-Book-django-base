@@ -128,3 +128,5 @@ dmypy.json
 # Pyre type checker
 .pyre/
 /Django_learning/Django_learning/static/images/recipes/
+
+.idea/workspace.xml
